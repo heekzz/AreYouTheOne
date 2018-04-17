@@ -14,36 +14,35 @@ import pickle #using Python 3.6.3
 load_from_file = True #keep as True if you have the latest allmatches.p file!
 
 # guys and girls in alphabetical order
-guys = ["Anthony", "Clinton", "Dimitri", "Ethan", "Joe", "Kareem", "Keith", "Malcolm", "Michael", "Shad", "Tyler"]
-girls = ["Alexis", "Alivia", "Audrey", "Diandra", "Geles", "Jada", "Keyana", "Nicole", "Nurys", "Uche", "Zoe"]
+guys = ["Robert", "Diego", "Shad", "Pontus", "Robin", "Stefan", "Christoffer", "Jonathan", "Martin", "Kevin"]
+girls = ["Renara", "Mariel", "Sanna", "Emma", "Malin", "Anna", "Maria", "Angelica", "My", "Valentina"]
 
 # (guesses, number of matches)
 # Corresponds to the guys list. ie: in week1, "Francesca" was therfore with "Asaf"
-week1 = (["Geles", "Uche", "Diandra", "Jada", "Zoe", "Alivia", "Alexis", "Nurys", "Keyana", "Audrey", "Nicole"], 3)
-week2 = (["Diandra", "Uche", "Nicole", "Jada", "Audrey", "Alivia", "Alexis", "Nurys", "Keyana", "Geles", "Zoe"], 1)
-week3 = (["Jada", "Uche", "Nurys", "Alexis", "Zoe", "Alivia", "Diandra", "Geles", "Audrey", "Keyana", "Nicole"], 2)
-week4 = (["Keyana", "Uche", "Alexis", "Nicole", "Zoe", "Diandra", "Nurys", "Alivia", "Geles", "Audrey", "Jada"], 3)
-week5 = (["Nicole", "Jada", "Uche", "Geles", "Zoe", "Alivia", "Alexis", "Diandra", "Nurys", "Audrey", "Keyana"], 1)
-week6 = (["Keyana", "Geles", "Diandra", "Jada", "Alexis", "Nurys", "Zoe", "Alivia", "Uche", "Audrey", "Nicole"], 4)
-week7 = (["Keyana", "Geles", "Diandra", "Zoe", "Uche", "Nurys", "Jada", "Alexis", "Audrey", "Alivia", "Nicole"], 5)
-week8 = (["Alivia", "Geles", "Diandra", "Alexis", "Jada", "Nurys", "Audrey", "Uche", "Keyana", "Zoe", "Nicole"], 3)
-week9 = ([], 0)
+week1 = (["Emma","Malin","Sanna","Angelica", "Mariel","Maria","Anna","My","Renara","Valentina"], 2)
+week2 = (["Anna","Mariel","Sanna","My","Maria","Renara","Valentina","Emma","Malin","Angelica"], 1)
+week3 = (["Renara","Valentina","Maria","Emma","Malin","Mariel","Anna","My","Sanna","Angelica"], 4)
+week4 = (["Mariel", "Sanna","Maria","Valentina","Emma","Malin","Anna","My","Renara","Angelica"], 4)
+week5 = (["Emma","Valentina","Maria","Anna","Sanna","Mariel","Malin","My","Renara","Angelica"], 5)
+week6 = (["Malin","Sanna","Maria","Valentina","Anna","Mariel","Emma","My","Renara","Angelica"], 6)
+week7 = (["Emma","Angelica","Maria","Valentina", "Anna","Mariel","Malin","My","Renara","Sanna"], 4) 
 
 #currentWeek stores the current weeks guesses, but before any Beams have been lit
 # This is used for blackout odds and beaem probabilities.
 # Don't worry about it if you just want to see the wiki table
 # Use Instruction: if it is currently Week 4, put the current guesses in currentWeek (before the number of Beams have been revealed and run the code without including Week4 in the AllWeeks list
 # Ignore these probabilities once you've added the week's beam results to the allWeeks list.
-currentWeek = ["Alivia", "Geles", "Diandra", "Alexis", "Jada", "Nurys", "Audrey", "Uche", "Keyana", "Zoe", "Nicole"]
+currentWeek = ["Emma","Angelica","Maria","Valentina", "Anna","Mariel","Malin","My","Sanna","Renara"]
+
 #UPDATE THIS EVERY WEEK
 # list of every weeks guesses
-allWeeks = [week1, week2, week3, week4, week5, week6, week7, week8]
+allWeeks = [week1, week2, week3, week4, week5, week6, week7]
 
 # the matches that got denied in the truth booth ("guy name", "girl name")
-truthBooth_denied = [("Ethan", "Keyana"), ("Anthony", "Geles"), ("Malcolm", "Nurys"), ("Dimitri", "Nicole"), ("Clinton", "Uche"), ("Keith", "Alexis"), ("Keith", "Alivia"), ("Michael", "Audrey")]
+truthBooth_denied = [("Pontus", "Mariel"), ("Robert", "Sanna"), ("Diego", "Malin"), ("Pontus", "Emma"),  ("Christoffer", "Anna"), ("Kevin", "Malin")]
 
 # the matches that were confirmed in the truth booth
-truthBooth_confirmed = []
+truthBooth_confirmed = [("Shad", "Maria")]
 
 # returns the number of matches in common between two match lists
 def correlation(list1, list2):
@@ -266,7 +265,7 @@ def printTable():
     print('{| class="wikitable" style="text-align:right"')
     print("|-")
     #table header
-    print('! !! style="width:'+ colWidth+ '"|' + girls[0] + '!! style="width:'+colWidth+'"|' + girls[1] + '!! style="width:'+colWidth+'"|' + girls[2] + '!! style="width:'+colWidth+'"|' + girls[3] + '!! style="width:'+colWidth+'"|' + girls[4] + '!! style="width:'+colWidth+'"|' + girls[5] + '!! style="width:'+colWidth+'"|' + girls[6] + '!! style="width:'+colWidth+'"|' + girls[7] + '!! style="width:'+colWidth+'"|' + girls[8] + '!! style="width:'+colWidth+'"|' + girls[9] + '!! style="width:'+colWidth+'"|' + girls[10])
+    print('! !! style="width:'+ colWidth+ '"|' + girls[0] + '!! style="width:'+colWidth+'"|' + girls[1] + '!! style="width:'+colWidth+'"|' + girls[2] + '!! style="width:'+colWidth+'"|' + girls[3] + '!! style="width:'+colWidth+'"|' + girls[4] + '!! style="width:'+colWidth+'"|' + girls[5] + '!! style="width:'+colWidth+'"|' + girls[6] + '!! style="width:'+colWidth+'"|' + girls[7] + '!! style="width:'+colWidth+'"|' + girls[8] + '!! style="width:'+colWidth+'"|' + girls[9])
     # table cells
     for key in sorted(match_dictionary.keys()):
         print("|-")
